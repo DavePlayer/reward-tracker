@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  height: 100%;
+
+  color-scheme: light dark;
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+
+.sections {
+  @apply w-1/2 flex justify-center items-center min-h-[650px];
+}
+.selected {
+  @apply bg-green-800 text-white !important;
+}
+
+.button {
+  @apply shadow-lg text-green-500 dark:hover:bg-green-800 hover:text-white hover:rounded-xl transition-all duration-300 ease-linear mt-3 p-1 flex justify-center items-center cursor-pointer dark:bg-gray-900 dark:text-gray-400 rounded-3xl;
+}
+
+.button-info {
+  @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white dark:bg-gray-900 text-xs font-bold transition-all duration-100 scale-0 origin-left;
+}
+
+.input {
+  @apply text-center rounded-full bg-gray-900 p-2 dark:text-gray-400;
+}
+
+.records {
+  @apply min-h-[2rem] even:dark:bg-gray-700;
+}
+
+.records > * {
+  @apply h-full flex justify-center items-center;
+}
+
+.overlay-wrapper {
+  @apply fixed top-0 left-0 w-full h-full bg-[rgba(1,1,1,0.5)] flex items-center;
+}
+.overlay-wrapper > *:first-child {
+  @apply m-auto w-1/2 h-1/2 dark:bg-gray-700 border-2 rounded-xl hover:rounded-3xl dark:text-gray-200 hover:dark:text-green-600 transition-all ease-linear flex justify-center items-center flex-col;
+}
+.overlay-wrapper > *:first-child > .overlay {
+  @apply w-full h-full flex flex-col items-center justify-center relative;
+}
+.overlay-wrapper > *:first-child:hover input::placeholder {
+  @apply dark:text-green-600 transition-all ease-linear;
+}
+.overlay-wrapper > *:first-child:hover > .overlay > .button {
+  @apply dark:text-white transition-all ease-linear dark:bg-green-700;
+}
+.overlay-wrapper > *:first-child .button {
+  @apply hover:dark:text-green-500;
+}
+.cancel:after {
+  content: "\00d7";
+  @apply w-full h-full text-4xl;
+}
+.cancel {
+  @apply absolute right-4 top-3 cursor-pointer dark:text-gray-50 hover:dark:text-green-700 transition-all ease-linear;
+}
